@@ -33,12 +33,6 @@ class MainActivity : AppCompatActivity() {
         firebaseAuth = FirebaseAuth.getInstance()
         checkUser()
 
-        //handle click, logout user
-        /*binding.logoutBtn.setOnClickListener{
-            firebaseAuth.signOut()
-            checkUser()
-        }*/
-
     }
 
     private fun checkUser() {
@@ -56,7 +50,6 @@ class MainActivity : AppCompatActivity() {
             //get user info
             val email = firebaseUser.email
             //set email
-//            findViewById<EditText>(R.id.uemail).text = email
         }
     }
 }

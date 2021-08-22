@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:padding="10dp"
+tools:context=".fragments.secondary.DiaryEditFragment">
+
+
+<ImageButton
+    android:id="@+id/backToDiaryDetail"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:backgroundTint="#CDDC39"
+    android:padding="20dp"
+    android:src="@drawable/ic_back"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"/>
+
+
+<EditText
+    android:id="@+id/diaryEditTitle"
+    android:layout_width="0dp"
+    android:layout_height="0dp"
+    android:hint="Text"
+    android:textSize="20sp"
+    app:layout_constraintBottom_toTopOf="@+id/diaryEditContent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toEndOf="@+id/backToDiaryDetail"
+    app:layout_constraintTop_toTopOf="parent" />
+
+<EditText
+    android:id="@+id/diaryEditContent"
+    android:layout_width="0dp"
+    android:layout_height="0dp"
+    android:isScrollContainer="true"
+    android:scrollbars="vertical"
+    android:hint="TextView"
+    android:textSize="16sp"
+    app:layout_constraintBottom_toTopOf="@+id/saveDiary"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/backToDiaryDetail" />
+
+<ImageButton
+    android:id="@+id/saveDiary"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:src="@drawable/ic_save_24"
+    android:padding="20dp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent" />
+
+<TextView
+    android:id="@+id/diaryDetailCreatedDate"
+    android:layout_width="0dp"
+    android:layout_height="0dp"
+    android:text="TextView"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toStartOf="@+id/saveDiary"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/diaryEditContent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

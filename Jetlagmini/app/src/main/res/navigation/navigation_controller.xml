@@ -19,7 +19,11 @@
         android:id="@+id/diaryFragment"
         android:name="com.example.jetlagminimizer.fragments.main.DiaryFragment"
         android:label="fragment_diary"
-        tools:layout="@layout/fragment_diary" />
+        tools:layout="@layout/fragment_diary" >
+        <action
+            android:id="@+id/action_diaryFragment_to_diaryDetailFragment"
+            app:destination="@id/diaryDetailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/statisticsFragment"
         android:name="com.example.jetlagminimizer.fragments.main.StatisticsFragment"
@@ -30,4 +34,24 @@
         android:name="com.example.jetlagminimizer.fragments.main.SettingsFragment"
         android:label="fragment_settings"
         tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/diaryDetailFragment"
+        android:name="com.example.jetlagminimizer.fragments.secondary.DiaryDetailFragment"
+        android:label="fragment_diary_detail"
+        tools:layout="@layout/fragment_diary_detail" >
+        <action
+            android:id="@+id/action_diaryDetailFragment_to_diaryFragment"
+            app:destination="@id/diaryFragment" />
+        <action
+            android:id="@+id/action_diaryDetailFragment_to_diaryEditFragment"
+            app:destination="@id/diaryEditFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/diaryEditFragment"
+        android:name="com.example.jetlagminimizer.fragments.secondary.DiaryEditFragment"
+        android:label="DiaryEditFragment" >
+        <action
+            android:id="@+id/action_diaryEditFragment_to_diaryDetailFragment"
+            app:destination="@id/diaryDetailFragment" />
+    </fragment>
 </navigation>
