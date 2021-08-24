@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "606584355532",
+    "firebase_url": "https://jetlagminimizer-default-rtdb.firebaseio.com",
+    "project_id": "jetlagminimizer",
+    "storage_bucket": "jetlagminimizer.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:606584355532:android:57f9b59de2b413d96c2069",
+        "android_client_info": {
+          "package_name": "com.example.jetlagcure"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "606584355532-7qage0n7oq7pjp1u472a84vffvsfvegp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.jetlagcure",
+            "certificate_hash": "223226fb0f1e62a25275fa555b9e3152adbac91d"
+          }
+        },
+        {
+          "client_id": "606584355532-h5f4mijvep6h8lmu9n8fv727pacthf8m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBlelkA9FG9Kss_wwaGNPyr_M8LPo73pwA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "606584355532-h5f4mijvep6h8lmu9n8fv727pacthf8m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
