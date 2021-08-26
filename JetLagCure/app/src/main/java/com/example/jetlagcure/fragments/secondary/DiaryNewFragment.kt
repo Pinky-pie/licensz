@@ -1,6 +1,7 @@
 package com.example.jetlagcure.fragments.secondary
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -10,9 +11,12 @@ import androidx.navigation.fragment.findNavController
 import com.example.jetlagcure.R
 import com.example.jetlagcure.databases.Diary
 import com.example.jetlagcure.databinding.FragmentDiaryNewBinding
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.*
 import java.util.*
+import kotlinx.coroutines.*
+import kotlin.coroutines.resume
+import kotlin.coroutines.resumeWithException
+import kotlin.coroutines.suspendCoroutine
 
 class DiaryNewFragment : Fragment() {
 
@@ -42,7 +46,22 @@ class DiaryNewFragment : Fragment() {
 
             database = FirebaseDatabase.getInstance().getReference("Diaries")
 
-            val Diary = Diary(1, dTitle, dContent, dCreatedDate)
+            var id = 0
+
+            database.addValueEventListener(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    if (snapshot?.hasChild("id")!!) {
+                        val value = snapshot.getValue() as Diary
+                        id = value.id
+                        Log.d("DATABASE", "$id")
+                    }
+                }
+                override fun onCancelled(error: DatabaseError) {
+                    Toast.makeText(context, "Database error!", Toast.LENGTH_SHORT).show()
+                }
+            })
+
+            val Diary = Diary(2, dTitle, dContent, dCreatedDate)
             database.child(Diary.id.toString()).setValue(Diary).addOnSuccessListener {
                 Toast.makeText(context, "Diary created", Toast.LENGTH_SHORT)
                     .show()

@@ -33,6 +33,8 @@ class DiaryDetailFragment : Fragment() {
 
         diaryContent.movementMethod = ScrollingMovementMethod()
 
+        //ADAT ATVETELE ID SZERINT A LOKALIS ADATBAZISBOL
+
         diaryTitle.text = arguments?.getString("diaryTitle")
         diaryContent.text = arguments?.getString("diaryContent")
         diaryCreatedDate.text = arguments?.getString("createdDate")

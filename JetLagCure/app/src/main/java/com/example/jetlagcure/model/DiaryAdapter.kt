@@ -10,9 +10,7 @@ import com.example.jetlagcure.databases.Diary
 import com.example.jetlagcure.R
 
 class DiaryAdapter(private val diary_list: MutableList<Diary>, private val listener: OnItemClickListener): RecyclerView.Adapter<DiaryAdapter.DiaryViewHolder>() {
-//class DiaryAdapter(private val diary_list: MutableList<Diary>): RecyclerView.Adapter<DiaryViewHolder>() {
 
-    //    inner class DiaryViewHolder(itemView: View): RecyclerView.ViewHolder(itemView), View.OnClickListener {
     inner class DiaryViewHolder(itemView: View): RecyclerView.ViewHolder(itemView), View.OnClickListener{
         val title: TextView = itemView.findViewById(R.id.title)
         val contentOfDiary: TextView = itemView.findViewById(R.id.contentOfDiary)

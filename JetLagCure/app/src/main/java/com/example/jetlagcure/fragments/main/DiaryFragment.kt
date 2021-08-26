@@ -10,15 +10,21 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.MutableLiveData
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.jetlagcure.R
 import com.example.jetlagcure.databases.Diary
 import com.example.jetlagcure.databinding.FragmentDiaryBinding
 import com.example.jetlagcure.model.DiaryAdapter
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
+import com.firebase.ui.firestore.FirestoreRecyclerOptions
+import com.google.firebase.database.*
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
 import org.json.JSONArray
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
+import kotlin.collections.HashMap
 
 
 class DiaryFragment : Fragment(), DiaryAdapter.OnItemClickListener {
@@ -27,19 +33,14 @@ class DiaryFragment : Fragment(), DiaryAdapter.OnItemClickListener {
 
     var diariesFromFirebase: MutableLiveData<MutableList<Diary>> = MutableLiveData()
 
-    //for recyclerView
-    private lateinit var diary_list: RecyclerView
-
     //for binding
     private lateinit var binding: FragmentDiaryBinding
 
     //for adapter to show the list data
     private lateinit var adapter: DiaryAdapter
 
-    //to load the diaries
     private lateinit var fStore: FirebaseFirestore
 
-    private lateinit var list: MutableList<Diary>
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -48,20 +49,28 @@ class DiaryFragment : Fragment(), DiaryAdapter.OnItemClickListener {
         // Inflate the layout for this fragment
         binding = FragmentDiaryBinding.inflate(inflater, container, false)
         val view = binding.root
+        val recView = binding.recDiaryList
 
-        /*list = mutableListOf()
+
+        val list :MutableList<Diary> = mutableListOf()
         list.add(Diary(0, "First", "first", Calendar.getInstance().time))
         list.add(Diary(0, "Second", "second", Calendar.getInstance().time))
         list.add(Diary(0, "Third", "third", Calendar.getInstance().time))
 
-        diary_list = binding.recDiaryList
 
-        diary_list.layoutManager = LinearLayoutManager(this.context)
-        diary_list.adapter = DiaryAdapter(list, this)
-        */
-        getAllDiariesFromFirebase()
+        recView.layoutManager = LinearLayoutManager(this.context)
+        recView.adapter = DiaryAdapter(list, this)
 
-        binding.addNewDiary.setOnClickListener{
+        //              IMPLEMENTALNI A DIARY-S MESET LOKALIS ADATBAZISSAL
+
+
+//        diariesFromFirebase.observe(viewLifecycleOwner, {
+//            recView.layoutManager = LinearLayoutManager(this.context)
+//            recView.adapter = DiaryAdapter(it, this)
+//            recView.setHasFixedSize(true)
+//        })
+
+        binding.addNewDiary.setOnClickListener {
             findNavController().navigate(R.id.action_diaryFragment_to_diaryNewFragment)
         }
 
@@ -69,23 +78,7 @@ class DiaryFragment : Fragment(), DiaryAdapter.OnItemClickListener {
     }
 
     override fun onItemClick(position: Int) {
-        val bundle = bundleOf(
-            "diaryTitle" to list[position].title,
-            "diaryContent" to list[position].content,
-            "createdDate" to list[position].dateCreated.toString(),
-        )
-        findNavController().navigate(R.id.action_diaryFragment_to_diaryDetailFragment, bundle)
-    }
-
-    fun getAllDiariesFromFirebase() {
-        database = FirebaseDatabase.getInstance().getReference("Diaries")
-        database.get().addOnSuccessListener {
-//                Log.d("diary", "content: $it")
-//                        Toast.makeText(context, "" +
-//                        "diary ${it.value}", Toast.LENGTH_SHORT).show()
-//            val jsonArray = JSONArray(it)
-
-                binding.fos.text = it.child(Diary().id.toString()).toString()
-        }
+        //ATKULDENI AZ ID-T A MEGNYOMOTT DIARY-ROL A LOKALIS ADATBAZISBOL
+        findNavController().navigate(R.id.action_diaryFragment_to_diaryDetailFragment)
     }
 }
