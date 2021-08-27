@@ -9,10 +9,14 @@
         android:id="@+id/homeFragment"
         android:name="com.example.jetlagcure.fragments.main.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_newTripFragment"
+            app:destination="@id/newTripFragment" />
+    </fragment>
     <fragment
         android:id="@+id/diaryDetailFragment"
-        android:name="com.example.jetlagcure.fragments.secondary.DiaryDetailFragment"
+        android:name="com.example.jetlagcure.fragments.secondary.diary.DiaryDetailFragment"
         android:label="fragment_diary_detail"
         tools:layout="@layout/fragment_diary_detail" >
         <action
@@ -36,7 +40,7 @@
     </fragment>
     <fragment
         android:id="@+id/diaryEditFragment"
-        android:name="com.example.jetlagcure.fragments.secondary.DiaryEditFragment"
+        android:name="com.example.jetlagcure.fragments.secondary.diary.DiaryEditFragment"
         android:label="fragment_diary_edit"
         tools:layout="@layout/fragment_diary_edit" >
         <action
@@ -45,7 +49,7 @@
     </fragment>
     <fragment
         android:id="@+id/diaryNewFragment"
-        android:name="com.example.jetlagcure.fragments.secondary.DiaryNewFragment"
+        android:name="com.example.jetlagcure.fragments.secondary.diary.DiaryNewFragment"
         android:label="fragment_diary_new"
         tools:layout="@layout/fragment_diary_new" >
         <action
@@ -67,4 +71,13 @@
         android:name="com.example.jetlagcure.fragments.main.StatisticsFragment"
         android:label="fragment_statistics"
         tools:layout="@layout/fragment_statistics" />
+    <fragment
+        android:id="@+id/newTripFragment"
+        android:name="com.example.jetlagcure.fragments.secondary.home.NewTripFragment"
+        android:label="fragment_new_trip"
+        tools:layout="@layout/fragment_new_trip" >
+        <action
+            android:id="@+id/action_newTripFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
 </navigation>

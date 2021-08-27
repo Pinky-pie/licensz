@@ -1,4 +1,4 @@
-package com.example.jetlagcure.fragments.secondary
+package com.example.jetlagcure.fragments.secondary.diary
 
 import android.os.Bundle
 import android.util.Log
@@ -14,9 +14,6 @@ import com.example.jetlagcure.databinding.FragmentDiaryNewBinding
 import com.google.firebase.database.*
 import java.util.*
 import kotlinx.coroutines.*
-import kotlin.coroutines.resume
-import kotlin.coroutines.resumeWithException
-import kotlin.coroutines.suspendCoroutine
 
 class DiaryNewFragment : Fragment() {
 

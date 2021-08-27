@@ -1,4 +1,4 @@
-package com.example.jetlagcure.fragments.secondary
+package com.example.jetlagcure.fragments.secondary.diary
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

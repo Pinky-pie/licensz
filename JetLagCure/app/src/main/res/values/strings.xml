@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">JetLag Cure</string>
+    <string name="plan_a_new_trip">Plan a new trip</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
